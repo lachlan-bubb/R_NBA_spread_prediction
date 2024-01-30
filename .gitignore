@@ -49,5 +49,4 @@ po/*~
 rsconnect/
 
 # Project files
-nbaSpreads/data/*
-!nbaSpreads/season_dates.csv 
+nbaSpreads/data

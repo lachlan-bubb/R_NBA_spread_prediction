@@ -19,8 +19,12 @@ months <- c("october", "november", "december",
 
 yearMonths <- CJ(years, months)
 
+rbind_fill <- function(...){
+  rbind(...,fill=TRUE)
+}
+
 dt <- 
-  foreach(row = iter(yearMonths, by = "row"), .combine = rbind) %do% {
+  foreach(row = iter(yearMonths, by = "row"), .combine = rbind_fill) %do% {
   
     yr <- row$years
     month <- row$month
