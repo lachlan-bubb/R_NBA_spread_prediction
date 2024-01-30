@@ -5,7 +5,39 @@
 ###############################
 # rm(list = ls()); gc();
 
-setwd("~/kaggle_projects/kaggle/nbaSpreads/")
+# setwd("~/nbaSpreads/")
+package_list = c(
+  "data.table",
+  "foreach",
+  "magrittr",
+  "iterators",
+  "stringr",
+  "tools",
+
+  "ggplot2",
+  "pdftools",
+  "gridExtra",
+  "corrplot",
+  "DiagrammeR",
+
+  "randomForest",
+  "xgboost",
+  "caret",
+  "Metrics",
+
+  "rvest",
+  "devtools"
+)
+
+# Install packages only if not already installed
+for (pkg in package_list) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    install.packages(pkg, dependencies = TRUE, repos = "https://cloud.r-project.org/")
+  }
+}
+
+library(devtools)
+devtools::install_github("abresler/nbastatR")
 
 # Source other functions 
 source("98_get_lines.R")
@@ -34,7 +66,6 @@ library(Metrics)
 
 # Web scraping
 library(rvest)
-library(devtools)
 library("nbastatR") 
 
 files <- list.files("data/")
@@ -137,7 +168,7 @@ convertOdds <- function(inputVector, type = "spread"){
     inputVector %>% 
     as.character() %>%
     gsub("PK", "+0 ", .) %>% 
-    gsub("½", ".5", .) %>%
+    gsub("ï¿½", ".5", .) %>%
     str_split(string = ., pattern = "\\s") %>%
     unlist(.) %>% 
     matrix(.,ncol=2,byrow=TRUE) %>%

@@ -41,7 +41,7 @@
 
 rm(list = ls()); gc();
 
-setwd("~/kaggle_projects/kaggle/nbaSpreads/")
+# setwd("~/nbaSpreads/")
 source("99_functions.R")
 
 # http://asbcllc.com/nbastatR/reference/teams_players_stats.html

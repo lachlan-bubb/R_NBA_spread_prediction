@@ -47,3 +47,7 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+# Project files
+nbaSpreads/data/*
+!nbaSpreads/season_dates.csv 

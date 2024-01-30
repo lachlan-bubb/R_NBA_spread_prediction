@@ -5,7 +5,7 @@
 ###############################
 rm(list = ls()); gc();
 
-setwd("~/kaggle_projects/kaggle/nbaSpreads/")
+# setwd("~/nbaSpreads/")
 source("99_functions.R")
 
 modelFile <- readFile(getModelFilePath())
